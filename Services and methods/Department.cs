@@ -3,11 +3,11 @@ public class Department{
 
     public Department EditDepartment(int dept_Id);
 
-    public bool DeleteDepartment(int dept_Id);
+    public bool DisableDepartment(int dept_Id);
     public List<Department> GetListOfDepartment();
 
     // For Filters
 
-    public List<User> GetUserByDepartment(int dept_Id);
-    public List<Course> GetCourseByDepartment(int dept_Id);
+    public List<User> GetUsersByDepartment(int dept_Id);
+    public List<Course> GetCoursesByDepartment(int dept_Id);
 }
