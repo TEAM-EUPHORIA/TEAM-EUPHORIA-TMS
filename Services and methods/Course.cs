@@ -1,32 +1,36 @@
 public class Course{
 
-    public Course CreateNewCourse();
+    public bool CreateCourse(Course course);
+    public Course GetCourse(int course_Id);
     public Course EditCourse(int course_Id);
     public bool DeleteCourse(int course_Id);
     public List<Course> ViewListofCourse();
-    public Topic AddTopicToCourse(int course_Id);
-    public Topic UpdateContentToTopic(int topic_Id);
-    public Topic EditContentOfTopic(int topic_Id);
-    public bool DeleteTopicOfCourse(int topic_Id);
+    
+    // Topics
+    public bool AddTopic(Topic topic);
+    public Topic GetTopic(int course_Id,int topic_Id);
+    public Topic EditTopic(int course_Id,int topic_Id);
+    public bool DeleteTopic(int course_Id,int topic_Id);
     public List<Topic> GetListOfTopicsByCourse(int course_Id);
 
     //Asssignment
-    public Assignment AddAssignmentToTopic(int topic_Id);
-    public AssignmentStatus SubmitAnswerToAssignment(int assignment_Id);
-    public Assignment EditAnswerToAssignment(int assignment_Id);
-    public Assignment DeleteSubmitedAssignment(int assignment_Id);
-    public List<Assignment> GetListofAssignment(int topic_Id);
+    public bool SubmitAssignment(Assignment assignment);
+    public Assignment GetAssignment(int assignment_Id);
+    public Assignment EditAssignment(int assignment_Id, Assignment assignment);
+    public bool DeleteAssignment(int assignment_Id);
+    public List<Assignment> GetListOfAssignment(int user_Id);
+    
 
     //Attendance
-    public AttendanceStatus SubmitAttendance(int user_Id);
-    public List<Attendance> GetTopicAttendance(int topic_Id);
+    public bool SubmitAttendance(Attendance attendance);
+    public List<Attendance> GetTopicAttendance(int course_Id,int topic_Id);
     
     //Feedback
-    public CourseFeedback GiveFeedbackAboutCourse(int course_Id);
-    public CourseFeedback EditFeedbackAboutCourse(int feedback_Id);
-    public List<CourseFeedback> GetListOfFeedbackAboutCourse();
+    public bool GiveFeedbackAboutCourse(CourseFeedback courseFeedback);
+    public CourseFeedback GetFeedbackByUserId(int c_feedback_Id);
+    public CourseFeedback EditFeedbackAboutCourse(int c_feedback_Id);
 
-    public TraineeFeedback GiveFeedbackAboutTrainee(int trainee_Id);
+    public bool GiveFeedbackAboutTrainee(TraineeFeedback traineeFeedback);
+    public TraineeFeedback GetFeedbackAboutTrainee(int t_feedback_Id);
     public TraineeFeedback EditFeedbackAboutTrainee(int t_feedback_Id);
-    public List<TraineeFeedback> GetListOfFeedbackAboutTrainee();
 }

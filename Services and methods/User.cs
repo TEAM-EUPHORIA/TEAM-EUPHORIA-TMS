@@ -1,9 +1,5 @@
 public class User{
-    public User CreateNewUser();
-
-    public User AssignUserToRole(int user_Id,int role_Id);
-
-    public User AssignUserToDepartment(int user_Id,int dept_Id);
+    public bool CreateUser(User user);
 
     public User EditUserDetails(int user_Id);
 
