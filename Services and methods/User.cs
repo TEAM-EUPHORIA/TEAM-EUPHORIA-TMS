@@ -1,15 +1,14 @@
 public class User{
-    public void CreateNewUser();
+    public User CreateNewUser();
 
-    public void AssignUserToRole(int user_Id,int role_Id);
+    public User AssignUserToRole(int user_Id,int role_Id);
 
-    public void AssignUserToDepartment(int user_Id,int dept_Id);
+    public User AssignUserToDepartment(int user_Id,int dept_Id);
 
-    public void EditUserDetails(int user_Id);
+    public User EditUserDetails(int user_Id);
 
-    public void DisableUser(int user_Id);
+    public bool DisableUser(int user_Id);
 
-    public void GetListOfUsers();
-    
-    
+    public List<User> GetListOfUsers();
+        
 }

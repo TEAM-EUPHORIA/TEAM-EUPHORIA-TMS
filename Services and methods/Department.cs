@@ -1,11 +1,11 @@
 public class Department{
-    public void CreateNewDepartment();
+    public Department CreateNewDepartment();
 
-    public void EditDepartment(int dept_Id);
+    public Department EditDepartment(int dept_Id);
 
-    public void DeleteDepartment(int dept_Id);
+    public bool DeleteDepartment(int dept_Id);
 
-    public void ViewListOfDepartment();
+    public List<Department> GetListOfDepartment();
 
-    public void GetUserByDepartment(int dept_Id);
+    public List<User> GetUserByDepartment(int dept_Id);
 }
