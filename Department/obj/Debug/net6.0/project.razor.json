@@ -1,5 +1,5 @@
 {
-  "FilePath": "d:\\web api\\Department\\Department.csproj",
+  "FilePath": "e:\\CoreMVC\\CoreMVC.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16295,7 +16295,7 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "Department",
+  "RootNamespace": "CoreMVC",
   "Documents": [],
   "SerializationFormat": "0.2"
 }
