@@ -261,3 +261,5 @@ D:\web api\Department\obj\Debug\net6.0\refint\Department.dll
 D:\web api\Department\obj\Debug\net6.0\Department.pdb
 D:\web api\Department\obj\Debug\net6.0\Department.genruntimeconfig.cache
 D:\web api\Department\obj\Debug\net6.0\ref\Department.dll
+D:\web api\Department\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\web api\Department\bin\Debug\net6.0\dotnet-ef.dll
