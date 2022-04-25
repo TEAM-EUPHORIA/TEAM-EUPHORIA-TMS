@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 namespace TMS{
     public class User{
         public int User_Id;
@@ -58,5 +59,20 @@ namespace TMS{
         public string Purpose_OfMeeting;
         public int Mom_StatusId;
         public string Mom_StatusName;
+=======
+namespace TMS
+{
+    public class User{
+
+    }
+    public class Role{
+
+    }
+    public class Department{
+
+    }
+    public class Review{
+        
+>>>>>>> 2bc7e680fb58ad9947c6c0ed7f69ee4fefad07e3
     }
 }

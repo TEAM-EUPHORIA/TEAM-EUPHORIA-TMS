@@ -1,4 +1,4 @@
-namespace Department;
+namespace CoreMVC;
 
 public class WeatherForecast
 {
