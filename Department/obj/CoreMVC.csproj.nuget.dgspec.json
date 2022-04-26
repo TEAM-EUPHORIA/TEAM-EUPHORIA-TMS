@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CoreMVC\\CoreMVC.csproj": {}
+    "E:\\Arul\\Department\\CoreMVC.csproj": {}
   },
   "projects": {
-    "E:\\CoreMVC\\CoreMVC.csproj": {
+    "E:\\Arul\\Department\\CoreMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CoreMVC\\CoreMVC.csproj",
+        "projectUniqueName": "E:\\Arul\\Department\\CoreMVC.csproj",
         "projectName": "CoreMVC",
-        "projectPath": "E:\\CoreMVC\\CoreMVC.csproj",
+        "projectPath": "E:\\Arul\\Department\\CoreMVC.csproj",
         "packagesPath": "C:\\Users\\arul.ilaya\\.nuget\\packages\\",
-        "outputPath": "E:\\CoreMVC\\obj\\",
+        "outputPath": "E:\\Arul\\Department\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\arul.ilaya\\AppData\\Roaming\\NuGet\\NuGet.Config"

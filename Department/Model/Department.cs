@@ -2,9 +2,9 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace COREMVC.Model;
+namespace Department.Model;
 
-public class Department{
+public class DepartmentModel{
     [Key]
     public int DepartmentId { get; set; }
     [Required]
