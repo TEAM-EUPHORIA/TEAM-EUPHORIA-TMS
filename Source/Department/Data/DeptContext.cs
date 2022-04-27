@@ -1,13 +1,13 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using Department.Model;
 
-namespace COREMVC.Model;
+namespace Department.Data;
 public class DeptContext : DbContext{
     
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ASPIREREN019;Initial Catalog=TrainingMS;Integrated Security=true;");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
+        optionsBuilder.UseSqlServer("DeptConnection");
     }
-    public DbSet<Department> Departments { get; set; }
+    public DbSet<DepartmentModel> Departmentmodels { get; set; }
 }
