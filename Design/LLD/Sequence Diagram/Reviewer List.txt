@@ -1,0 +1,17 @@
+title Training Head
+actor User
+activate User
+activate Reviewer list
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Reviewer list:Reviewer list
+Reviewer list->Controller:GetalluserbyroleID()
+Controller->User:Bad request
+Controller->Service:GetalluserbyRoleID()
+Service->Data access layer:Reviewerlist
+Data access layer->Db:Get Reviewer list
+Data access layer->Service:Return Reviewer list
+Service->Controller:Reviewer list
+Controller->Trainee list:Reviewer list

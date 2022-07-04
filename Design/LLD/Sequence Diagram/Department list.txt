@@ -1,0 +1,17 @@
+title Training Head
+actor User
+activate User
+activate Department list
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Department list:Co-ordinator list
+Department list->Controller:Getalldepartment()
+Controller->User:Bad request
+Controller->Service:Getalldepartment()
+Service->Data access layer:Departmentlist()
+Data access layer->Db:Get department list
+Data access layer->Service:Return department list
+Service->Controller:department list
+Controller->Department list:department list

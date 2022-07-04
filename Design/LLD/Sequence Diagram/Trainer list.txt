@@ -1,0 +1,17 @@
+title Training Head
+actor User
+activate User
+activate Trainer list
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Trainer list:Trainer list
+Trainer list->Controller:GetalluserbyroleID()
+Controller->User:Bad request
+Controller->Service:GetalluserbyRoleID()
+Service->Data access layer:Trainerlist
+Data access layer->Db:Get Trainer list
+Data access layer->Service:Return Trainer list
+Service->Controller:Trainer list
+Controller->Trainer list:Trainer list

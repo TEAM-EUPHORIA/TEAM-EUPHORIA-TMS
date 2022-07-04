@@ -1,0 +1,21 @@
+title Training Head
+actor User
+activate User
+activate Add Co-ordinator
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Add Co-ordinator:User Add Co-ordinator
+Add Co-ordinator->Controller:Createuser()
+alt if null
+Controller->User:Bad request
+else not null
+alt if already exist
+Controller->Service:Validate the User details
+Service->Service:user already exist
+else new user
+Service->Data access layer:Save user
+Data access layer->Db:Create user
+end 
+end

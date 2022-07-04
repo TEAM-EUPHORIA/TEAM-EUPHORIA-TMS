@@ -1,0 +1,17 @@
+title Training Head
+actor User
+activate User
+activate Co-ordinator list
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Co-ordinator list:Co-ordinator list
+Co-ordinator list->Controller:GetalluserbyroleID()
+Controller->User:Bad request
+Controller->Service:GetallUserbyrole()
+Service->Data access layer:userlist()
+Data access layer->Db:Get co-ordinator list
+Data access layer->Service:Return Co-ordinator list
+Service->Controller:Co-ordinator list
+Controller->Co-ordinator list:Co-ordinator list

@@ -1,0 +1,27 @@
+title Training Head
+actor User
+activate User
+activate My profile
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->My profile:User profile
+My profile->Controller:GetuserbyID()
+alt if Null
+Controller->User:Bad request(null value)
+else not null
+Controller->Service:Getuser(ID)
+alt active user
+Service->Data access layer:IsActive
+else disable
+Service<-Data access layer:Disable
+alt user active
+Data access layer->
+Data access layer->Db:Get data from Database
+Data access layer->Service:Return user profile
+Service->Controller:User active
+Controller->My profile:Profile Page
+end 
+end 
+end
