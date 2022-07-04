@@ -1,0 +1,34 @@
+title Mark Attendance
+actor User
+entryspacing 0.8
+participant Mark Attendance
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Mark Attendance
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Mark Attendance:Mark Attendance\n
+Mark Attendance->Controller:MarkAssignment()
+Controller->Service:validate whether attendance marked
+alt if attendance already marked
+Controller->User:attendance marked
+else attendance not marked
+Controller->Service:validate attendance
+alt if valid
+
+Service->Data access layer:MarkAttendance()
+
+
+Data access layer->Db:MarkAttendance()
+else not valid
+Service->Controller:Bad request
+
+
+
+end 
+end

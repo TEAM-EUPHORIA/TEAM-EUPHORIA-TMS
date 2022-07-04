@@ -1,0 +1,37 @@
+title Edit Assignment
+actor User
+entryspacing 0.8
+participant Edit Assignment
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Edit Assignment
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Edit Assignment:Edit Assignment
+Edit Assignment->Controller:UpdateAssignment()
+Controller->Service:AssignmentExists()
+alt if Assignment doesn't  exists
+Service->Controller:returns Assignment doesn't exists
+Controller->User:Bad Request\n
+else Assignment exist
+Controller->Service:validate Assignment details
+alt if valid
+
+Controller->Service:UpdateAssignment()
+
+Service->Data access layer:SetUpAssignmentDetails()
+Data access layer->Db:UpdateAssignment()
+else not valid
+Service->Controller:Bad request
+
+Controller->User:Please enter valid details
+
+
+
+end 
+end

@@ -1,0 +1,34 @@
+title Create Course
+actor User
+entryspacing 0.8
+participant Create Course
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Create Course
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Create Course:Create Course\n
+Create Course->Controller:CreateCourse()
+Controller->Service:validate (course exist)
+alt if course exists
+Controller->User:Course already exists
+else Course doesn't exist
+Controller->Service:validate Course details
+alt if valid
+
+Controller->Service:CreateCourse()
+
+Service->Data access layer:SetUpCourseDetails()
+Data access layer->Db:CreateCourse()
+else not valid
+Service->Controller:Bad request
+
+
+
+end 
+end

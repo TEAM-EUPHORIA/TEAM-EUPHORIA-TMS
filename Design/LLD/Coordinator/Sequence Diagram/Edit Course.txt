@@ -1,0 +1,37 @@
+title Edit Course
+actor User
+entryspacing 0.8
+participant Edit Course
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Edit Course
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Edit Course:Edit Course\n
+Edit Course->Controller:UpdateCourse()
+Controller->Service:CourseExists()
+alt if Course doesn't  exists
+Service->Controller:returns course doesn't exists
+Controller->User:Bad Request\n
+else course exist
+Controller->Service:validate Course details
+alt if valid
+
+Controller->Service:UpdateCourse()
+
+Service->Data access layer:SetUpCourseDetails()
+Data access layer->Db:UpdateCourse()
+else not valid
+Service->Controller:Bad request
+
+Controller->User:Please enter valid details.
+
+
+
+end 
+end

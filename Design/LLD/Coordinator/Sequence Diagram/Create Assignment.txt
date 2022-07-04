@@ -1,0 +1,34 @@
+title Create Assignment
+actor User
+entryspacing 0.8
+participant Create Assignment
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Create Assignment
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Create Assignment:Create Assignment\n
+Create Assignment->Controller:CreateAssignment()
+Controller->Service:validate (Assignment exist)
+alt if assignment exists
+Controller->User:assignment already exists
+else assignment doesn't exist
+Controller->Service:validate assignment details
+alt if valid
+
+Controller->Service:CreateAssignment()
+
+Service->Data access layer:SetUpAssignmentDetails()
+Data access layer->Db:CreateAssignment()
+else not valid
+Service->Controller:Bad request
+
+
+
+end 
+end

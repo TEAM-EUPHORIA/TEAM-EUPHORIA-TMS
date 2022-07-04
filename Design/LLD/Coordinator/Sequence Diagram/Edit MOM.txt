@@ -1,0 +1,37 @@
+title Edit MOM
+actor User
+entryspacing 0.8
+participant Edit MOM
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Edit MOM
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Edit MOM:Edit MOM
+Edit MOM->Controller:UpdateMOM()
+Controller->Service:MOMExists()
+alt if mom doesn't  exists
+Service->Controller:returns MOM doesn't exists
+Controller->User:Bad Request\n
+else mom exist
+Controller->Service:validate MOM details
+alt if valid
+
+Controller->Service:UpdateMOM()
+
+Service->Data access layer:SetUpMOMDetails()
+Data access layer->Db:UpdateMOM()
+else not valid
+Service->Controller:Bad request
+
+Controller->User:Please enter valid details
+
+
+
+end 
+end

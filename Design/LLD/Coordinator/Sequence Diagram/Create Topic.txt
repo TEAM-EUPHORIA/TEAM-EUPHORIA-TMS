@@ -1,0 +1,34 @@
+title Create Topic
+actor User
+entryspacing 0.8
+participant Create Topic
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Create Topic
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Create Topic:Create Topic
+Create Topic->Controller:CreateTopic()
+Controller->Service:validate (topic exist)
+alt if topic  exists
+Controller->User:Topic already exists
+else Topic doesn't exist
+Controller->Service:validate Topic details
+alt if valid
+
+Controller->Service:CreateTopic()
+
+Service->Data access layer:SetUpTopicDetails()
+Data access layer->Db:CreateTopic()
+else not valid
+Service->Controller:Bad request
+
+
+
+end 
+end

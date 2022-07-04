@@ -1,0 +1,37 @@
+title Edit Topic
+actor User
+entryspacing 0.8
+participant Edit Topic
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Edit Topic
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Edit Topic:Edit Topic
+Edit Topic->Controller:UpdateTopic()
+Controller->Service:TopicExists()
+alt if Topic doesn't  exists
+Service->Controller:returns topic doesn't exists
+Controller->User:Bad Request\n
+else topic exist
+Controller->Service:validate topic details
+alt if valid
+
+Controller->Service:UpdateTopic()
+
+Service->Data access layer:SetUpTopicDetails()
+Data access layer->Db:UpdateTopic()
+else not valid
+Service->Controller:Bad request
+
+Controller->User:Please enter valid details.
+
+
+
+end 
+end

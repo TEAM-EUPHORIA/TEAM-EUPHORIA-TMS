@@ -1,0 +1,37 @@
+title Edit Review
+actor User
+entryspacing 0.8
+participant Edit Review
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Edit Review
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Edit Review:Edit Review
+Edit Review->Controller:UpdateReview()
+Controller->Service:ReviewExists()
+alt if Review doesn't  exists
+Service->Controller:returns Review doesn't exists
+Controller->User:Bad Request\n
+else Review exist
+Controller->Service:validate Review details
+alt if valid
+
+Controller->Service:UpdateReview()
+
+Service->Data access layer:SetUpReviewDetails()
+Data access layer->Db:UpdateReview()
+else not valid
+Service->Controller:Bad request
+
+Controller->User:Please enter valid details
+
+
+
+end 
+end

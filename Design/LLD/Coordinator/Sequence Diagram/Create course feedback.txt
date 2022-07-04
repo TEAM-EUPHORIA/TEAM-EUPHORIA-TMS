@@ -1,0 +1,34 @@
+title Create Course Feedback
+actor User
+entryspacing 0.8
+participant Create Course Feedback
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Create Course Feedback
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Create Course Feedback:Create Course Feedback\n
+Create Course Feedback->Controller:CreateCourseFeedback()
+Controller->Service:validate (Feedback exist)
+alt if feedback exists
+Controller->User:Feedback already exists
+else feedback doesn't exist
+Controller->Service:validate feedback details
+alt if valid
+
+Controller->Service:CreateCourseFeedback()
+
+Service->Data access layer:SetUpCourseFeedbackDetails()
+Data access layer->Db:CreateCourseFeedback()
+else not valid
+Service->Controller:Bad request
+
+
+
+end 
+end

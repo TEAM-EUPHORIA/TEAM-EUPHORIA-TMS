@@ -1,0 +1,30 @@
+title Schedule Review
+actor User
+entryspacing 0.8
+participant Review List
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Review List
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Review List:Create Review
+Review List->Controller:CreateReview()
+alt [if null]
+Controller->User:Bad request
+else [not null]
+alt 
+
+Controller->Service:CreateReview()
+
+Service->Data access layer:SetUpReviewDetails()
+Data access layer->Db:Save Review Details
+
+
+
+end 
+end

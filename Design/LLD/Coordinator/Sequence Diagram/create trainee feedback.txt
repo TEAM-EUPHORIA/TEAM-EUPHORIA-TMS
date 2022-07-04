@@ -1,0 +1,34 @@
+title Create Trainee Feedback
+actor User
+entryspacing 0.8
+participant Create Trainee Feedback
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Create Trainee Feedback
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Create Trainee Feedback:Create Trainee Feedback\n
+Create Trainee Feedback->Controller:CreateTraineeFeedback()
+Controller->Service:validate (Feedback exist)
+alt if feedback exists
+Controller->User:Feedback already exists
+else feedback doesn't exist
+Controller->Service:validate feedback details
+alt if valid
+
+Controller->Service:CreateTraineeFeedback()
+
+Service->Data access layer:SetUpTraineeFeedbackDetails()
+Data access layer->Db:CreateTraineeFeedback()
+else not valid
+Service->Controller:Bad request
+
+
+
+end 
+end

@@ -1,0 +1,34 @@
+title Create MOM
+actor User
+entryspacing 0.8
+participant Create MOM
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Create MOM
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Create MOM:Create MOM\n
+Create MOM->Controller:CreateMOM()
+Controller->Service:validate (mom exist)
+alt if mom exists
+Controller->User:mom already exists
+else mom doesn't exist
+Controller->Service:validate mom details
+alt if valid
+
+Controller->Service:CreateMOM()
+
+Service->Data access layer:SetUpMOMDetails()
+Data access layer->Db:CreateMOM()
+else not valid
+Service->Controller:Bad request
+
+
+
+end 
+end

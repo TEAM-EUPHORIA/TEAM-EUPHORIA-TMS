@@ -1,0 +1,37 @@
+title Edit Department
+actor User
+entryspacing 0.8
+participant Edit Department
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Edit Department
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Edit Department:Edit Department
+Edit Department->Controller:UpdateDepartment()
+Controller->Service:DepartmentExists()
+alt if Department doesn't  exists
+Service->Controller:returns Department doesn't exists
+Controller->User:Bad Request\n
+else Department exist
+Controller->Service:validate Department details
+alt if valid
+
+Controller->Service:UpdateDepartment()
+
+Service->Data access layer:SetUpDepartmentDetails()
+Data access layer->Db:UpdateDepartment()
+else not valid
+Service->Controller:Bad request
+
+Controller->User:Please enter valid details
+
+
+
+end 
+end

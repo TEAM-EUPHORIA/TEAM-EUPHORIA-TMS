@@ -1,0 +1,34 @@
+title Create Review
+actor User
+entryspacing 0.8
+participant Create Review
+participant Controller
+participant Service
+participant Data access layer
+
+activate User
+activate Create Review
+activate Controller
+activate Service
+activate Data access layer
+database Db
+User->Create Review:Create Review\n
+Create Review->Controller:CreateReview()
+Controller->Service:validate (review exist)
+alt if review exists
+Controller->User:Review already exists
+else review doesn't exist
+Controller->Service:validate review details
+alt if valid
+
+Controller->Service:CreateReview()
+
+Service->Data access layer:SetUpReviewDetails()
+Data access layer->Db:CreateReview()
+else not valid
+Service->Controller:Bad request
+
+
+
+end 
+end
