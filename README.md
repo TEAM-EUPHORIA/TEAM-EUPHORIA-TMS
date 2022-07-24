@@ -23,7 +23,7 @@
 ---
 # Source code for TMS
 
-## TMS is a web app which made using different tools and technologies `Web-api` in [Dotnet Core](https://dotnet.microsoft.com/en-us/) for backend, `Client-side-app` in [Angular](https://angular.io/) for front end and `SQL Server` for the Database
+## TMS is a web app which is made using different tools and technologies `Web-api` in [Dotnet Core](https://dotnet.microsoft.com/en-us/) for backend, `Client-side-app` in [Angular](https://angular.io/) for front end and `SQL Server` for the Database
 
 ## [Link to TMS-API](https://github.com/TEAM-EUPHORIA/TMS-API "Link to web api repo")
 ## [Link to TMS-Angular](https://github.com/TEAM-EUPHORIA/TMS-Angular "Link to angular repo")
